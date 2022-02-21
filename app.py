@@ -10,6 +10,9 @@ app.config['MAIL_PASSWORD'] = 'mypass'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
+@app.route("/")
+def gg(): 
+    return " "
 
 @app.route("/bomb/<string:t>/<string:s>/<string:m>")
 def bomb(t,s,m): 
