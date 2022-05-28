@@ -1,7 +1,8 @@
 FROM ubuntu
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt update && apt upgrade -y && apt install python3 bash python3-pip -y && pip3 install flask flask_mail
+RUN apt update && apt upgrade -y && apt install curl wget bash python3 python3-pip -y
 COPY . /data
-EXPOSE 5000
-CMD [ "/data/cmd.sh" ]
+RUN pip3 install -r /data/requirements.txt
+RUN pip3 install flask
+WORKDIR /data
+CMD [ "/data/start.sh" ]
